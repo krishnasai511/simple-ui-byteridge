@@ -1,0 +1,27 @@
+<h1>Audit Logs of the users</h1>
+<p><a [routerLink]="['/']">Go to Dashboard</a></p>
+<table>
+    <tr>
+        <th>User Name</th>
+        <th>
+    <tr class="inner">
+
+        <th>LogIn Time</th>
+        <th>Logout Time</th>
+        <th>Client Ip</th>
+    </tr>
+    </th>
+
+    </tr>
+    <tr *ngFor="let log of auditLogs">
+
+        <td>{{log.username}}</td>
+        <td>
+    <tr class="inner" *ngFor="let item of log.logs">
+        <td>{{item.login_time |  date:'M/d/yy, h:mm a'}}</td>
+        <td>{{item.logout_time |  date:'M/d/yy, h:mm a'}}</td>
+        <td>{{item.client_ip}}</td>
+    </tr>
+    </td>
+    </tr>
+</table>
