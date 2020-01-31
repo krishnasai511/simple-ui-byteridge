@@ -8,6 +8,7 @@ export class AuditComponent implements OnInit {
     auditLogs: any;
     role: string;
     currentUid: string;
+    p: number[] = [];
     constructor(private userService: UserService, private _roleGuardService: RoleGuardService) {
         this.role = this._roleGuardService.checkRole();
         this.currentUid = JSON.parse(localStorage.getItem('currentUser'))._id;
@@ -17,7 +18,6 @@ export class AuditComponent implements OnInit {
 
         this.userService.getAuditLogs(this.currentUid, this.role).subscribe(logs => {
             this.auditLogs = logs;
-            console.log('auditLogs', this.auditLogs)
         });
     }
 }

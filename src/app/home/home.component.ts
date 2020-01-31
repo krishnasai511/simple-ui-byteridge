@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
 
     private loadAllUsers() {
         this.userService.getAll().pipe(first()).subscribe(users => {
-            console.log('userss', users)
             this.users = users;
         });
     }

@@ -13,15 +13,19 @@
     </th>
 
     </tr>
-    <tr *ngFor="let log of auditLogs">
-
-        <td>{{log.username}}</td>
-        <td>
+    <tr *ngFor="let log of auditLogs  | paginate: {
+        itemsPerPage: 5,
+        currentPage: p} ">
+        <ng-container *ngIf="log.logs.length ">
+            <td>{{log.username}}</td>
+            <td>
     <tr class="inner" *ngFor="let item of log.logs">
-        <td>{{item.login_time |  date:'M/d/yy, h:mm a'}}</td>
-        <td>{{item.logout_time |  date:'M/d/yy, h:mm a'}}</td>
+        <td>{{item.login_time  |  date:'M/d/yy, h:mm a'}}</td>
+        <td>{{item.logout_time  |  date:'M/d/yy, h:mm a'}}</td>
         <td>{{item.client_ip}}</td>
     </tr>
     </td>
+    </ng-container>
     </tr>
 </table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

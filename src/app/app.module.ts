@@ -17,13 +17,15 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { AuditComponent } from './audit';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        routing
+        routing,
+        NgxPaginationModule
     ],
     declarations: [
         AppComponent,
@@ -31,7 +33,7 @@ import { AuditComponent } from './audit';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        AuditComponent
+        AuditComponent,
     ],
     providers: [
         AuthGuard,

@@ -22,7 +22,7 @@ export class AuthenticationService {
     }
 
     logout() {
-        let login_id = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).login_id : ''
+        let login_id = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).login_id : '';
         if (login_id) {
             this.http.get(`${config.apiUrl}/users/logout/` + login_id)
                 .pipe(map(user => user)).subscribe(res => res);
